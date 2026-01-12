@@ -31,13 +31,13 @@
 ```bash
 cd /root
 # 下载最新版aliyunpan
-wget https://gitee.com/cumtsgw/aliyunpan/releases/download/v0.3.10/aliyunpan-linux-amd64.tar.gz
+wget https://github.com/tickstep/aliyunpan/releases/download/v0.3.4/aliyunpan-v0.3.4-linux-amd64.zip
 
 # 解压
-tar -zxvf aliyunpan-linux-amd64.tar.gz
+unzip aliyunpan-v0.3.4-linux-amd64.zip
 
 # 移动到系统路径（方便全局使用）
-mv aliyunpan-linux-amd64/aliyunpan /usr/local/bin/
+mv aliyunpan-v0.3.4-linux-amd64/aliyunpan /usr/local/bin/
 
 # 验证安装
 aliyunpan --version
@@ -67,14 +67,14 @@ aliyunpan login
 aliyunpan ls /
 
 # 列出数据集目录（根据实际路径调整）
-aliyunpan ls /备份文件/WorkData/Datasets/
+aliyunpan ls /WorkData/Datasets/
 ```
 
 ### 步骤 4：下载数据集
 
 ```bash
 # 下载到 autodl-tmp 目录（AutoDL 数据盘）
-aliyunpan download /备份文件/WorkData/Datasets/KitchenWaste-YOLOv8-Dataset /root/autodl-tmp/
+aliyunpan download -saveto ~/autodl-tmp /WorkData/Datasets/KitchenWaste-YOLOv8-Dataset.zip
 
 # 等待下载完成...
 ```
@@ -83,25 +83,25 @@ aliyunpan download /备份文件/WorkData/Datasets/KitchenWaste-YOLOv8-Dataset /
 
 ```bash
 # 进入下载目录
-cd /root/autodl-tmp/KitchenWaste-YOLOv8-Dataset
+cd ~/autodl-tmp/WorkData/Datasets
 
-# 如果是压缩包，先解压
-# unzip KitchenWaste-YOLOv8-Dataset.zip
+# 先解压压缩包
+unzip KitchenWaste-YOLOv8-Dataset.zip
 
 # 移动到项目目录
-mv images labels data.yaml /root/KitchenWaste-YOLOv8/resources/datasets/
+mv images labels ~/autodl-tmp/KitchenWaste-YOLOv8/resources/datasets/
 ```
 
 ### 步骤 6：验证下载
 
 ```bash
 # 检查文件结构
-ls /root/KitchenWaste-YOLOv8/resources/datasets/
+ls ~/autodl-tmp/KitchenWaste-YOLOv8/resources/datasets/
 # 应显示: images/  labels/  data.yaml
 
 # 检查图片数量
-ls /root/KitchenWaste-YOLOv8/resources/datasets/images/train | wc -l
-ls /root/KitchenWaste-YOLOv8/resources/datasets/images/val | wc -l
+ls ~/autodl-tmp/KitchenWaste-YOLOv8/resources/datasets/images/train | wc -l
+ls ~/autodl-tmp/KitchenWaste-YOLOv8/resources/datasets/images/val | wc -l
 ```
 
 ---
@@ -128,7 +128,7 @@ resources/datasets/
 ### 1. 运行数据预处理（如需要）
 
 ```bash
-cd /root/KitchenWaste-YOLOv8
+cd ~/autodl-tmp/KitchenWaste-YOLOv8
 python tools/dataset_preprocessor.py --execute
 ```
 
