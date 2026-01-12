@@ -1,0 +1,231 @@
+# ============================================
+# YOLOv8 垃圾分类项目 .gitignore
+# ============================================
+# 数据集：阿里云盘存储
+# 模型文件：云服务器下载到本地
+# 代码：GitHub版本控制
+# ============================================
+
+# ====================
+# 1. 模型文件和检查点
+# ====================
+# PyTorch模型
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# ONNX模型
+*.onnx
+
+# TensorRT模型
+*.engine
+*.trt
+
+# 其他框架模型
+*.h5
+*.pb
+*.tflite
+*.mlmodel
+
+# 模型目录（保留目录结构）
+resources/models/*
+!resources/models/.gitkeep
+!resources/models/README.md
+
+# ====================
+# 2. 数据集相关
+# ====================
+# 数据集目录
+resources/datasets/images/
+resources/datasets/labels/
+resources/datasets/processed/
+resources/datasets/*.zip
+resources/datasets/*.tar
+resources/datasets/*.tar.gz
+resources/datasets/*.7z
+
+# 缓存文件
+*.cache
+*.npy
+*.npz
+
+# 标签备份
+**/labels_backup/
+**/labels_converted/
+
+# ====================
+# 3. 训练输出
+# ====================
+# YOLO训练输出
+runs/
+outputs/
+experiments/
+
+# TensorBoard日志
+**/events.out.tfevents.*
+tensorboard/
+
+# 训练检查点
+checkpoints/
+weights/
+
+# ====================
+# 4. 日志文件
+# ====================
+*.log
+logs/
+*.out
+nohup.out
+train_*.txt
+val_*.txt
+
+# ====================
+# 5. Python缓存
+# ====================
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+.eggs/
+*.egg-info/
+*.egg
+
+# ====================
+# 6. 虚拟环境
+# ====================
+env/
+venv/
+.venv/
+ENV/
+.conda/
+conda-env/
+
+# pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ====================
+# 7. IDE和编辑器
+# ====================
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Vim/Emacs
+*.swp
+*.swo
+*~
+\#*\#
+
+# ====================
+# 8. 操作系统文件
+# ====================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+.directory
+.Trash-*
+
+# ====================
+# 9. 临时文件
+# ====================
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+tmp/
+temp/
+
+# ====================
+# 10. 敏感信息
+# ====================
+# 配置文件中的敏感信息
+.env
+.env.local
+.env.*.local
+*.env
+
+# API密钥和凭证
+secrets.yaml
+secrets.json
+credentials.json
+*.key
+*.pem
+*.crt
+
+# ====================
+# 11. 项目特定
+# ====================
+# Ask Continue工具
+.ask_continue_port
+ask_continue_temp_photo/
+
+# Windsurf规则
+.windsurfrules
+
+# 检测结果保存目录
+resources/save_data/*
+!resources/save_data/.gitkeep
+
+# 测试文件目录
+resources/TestFiles/*
+!resources/TestFiles/.gitkeep
+
+# 字体目录
+resources/Font/*
+!resources/Font/.gitkeep
+
+# ====================
+# 12. 构建产物
+# ====================
+build/
+dist/
+*.spec
+
+# ====================
+# 13. 文档构建
+# ====================
+docs/_build/
+site/
+
+# ====================
+# 14. 测试覆盖率
+# ====================
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.tox/
+
+# ====================
+# 保留的空目录占位符
+# ====================
+# 使用 .gitkeep 文件保持空目录结构
+# 这些文件应该被提交
+!**/.gitkeep
